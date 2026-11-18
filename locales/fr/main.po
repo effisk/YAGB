@@ -1,0 +1,204 @@
+# Language: Français
+# Module: YAGB - 1.0
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: YAGB 1.0\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Yet Another Gallery Builder"
+msgstr "Yet Another Gallery Builder"
+
+msgid "Upload photos from the post editor and insert them as a gallery"
+msgstr "Envoyez des photos depuis l'éditeur de billets et insérez-les sous forme de galerie"
+
+msgid "Photo gallery"
+msgstr "Galerie photos"
+
+msgid "Insert a photo gallery"
+msgstr "Insérer une galerie photos"
+
+msgid "Heading (optional):"
+msgstr "Titre (facultatif) :"
+
+msgid "Media folder:"
+msgstr "Dossier des médias :"
+
+msgid "Inside the media folder, e.g. shows or shows/2026. Empty = top level. Created if needed."
+msgstr "Dans le dossier des médias, par ex. shows ou shows/2026. Vide = racine. Créé si besoin."
+
+msgid "File names:"
+msgstr "Noms des fichiers :"
+
+msgid "Photos are saved as name-01.jpg, name-02.jpg…"
+msgstr "Les photos sont enregistrées sous nom-01.jpg, nom-02.jpg…"
+
+msgid "Added to every alt text:"
+msgstr "Ajouté à chaque texte alternatif :"
+
+msgid "For example: \"in Hamlet at the Globe. Photo by Jane Doe\""
+msgstr "Par exemple : « dans Hamlet au Globe. Photo de Jeanne Dupont »"
+
+msgid "Resize before upload to (longest edge):"
+msgstr "Redimensionner avant l'envoi à (plus grand côté) :"
+
+msgid "Keep original size"
+msgstr "Garder la taille d'origine"
+
+msgid "Drop photos here or choose files"
+msgstr "Déposez les photos ici ou choisissez des fichiers"
+
+msgid "Choose files"
+msgstr "Choisir des fichiers"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Alt text:"
+msgstr "Texte alternatif :"
+
+msgid "Move up"
+msgstr "Monter"
+
+msgid "Move down"
+msgstr "Descendre"
+
+msgid "Remove"
+msgstr "Retirer"
+
+msgid "Upload and insert"
+msgstr "Envoyer et insérer"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Uploading %1$s of %2$s…"
+msgstr "Envoi de %1$s sur %2$s…"
+
+msgid "%s is not a JPEG, PNG or WebP image."
+msgstr "%s n'est pas une image JPEG, PNG ou WebP."
+
+msgid "%s is too large to upload (maximum %s)."
+msgstr "%s est trop lourd pour être envoyé (maximum %s)."
+
+msgid "Add at least one photo."
+msgstr "Ajoutez au moins une photo."
+
+msgid "Enter a file name."
+msgstr "Indiquez un nom de fichier."
+
+msgid "Upload failed for %1$s: %2$s"
+msgstr "Échec de l'envoi de %1$s : %2$s"
+
+msgid "Click \"Upload and insert\" to try again; photos already uploaded are not sent twice."
+msgstr "Cliquez sur « Envoyer et insérer » pour réessayer ; les photos déjà envoyées ne le sont pas une seconde fois."
+
+msgid "%s photo(s) have no alt text. Insert anyway?"
+msgstr "%s photo(s) n'ont pas de texte alternatif. Insérer quand même ?"
+
+msgid "Previous image"
+msgstr "Image précédente"
+
+msgid "Next image"
+msgstr "Image suivante"
+
+msgid "Close"
+msgstr "Fermer"
+
+msgid "%1$s of %2$s"
+msgstr "%1$s sur %2$s"
+
+msgid "The class name may only contain letters, digits, hyphens and underscores, and must start with a letter."
+msgstr "Le nom de classe ne peut contenir que des lettres, des chiffres, des tirets et des soulignés, et doit commencer par une lettre."
+
+msgid "Settings have been successfully updated."
+msgstr "Les réglages ont été mis à jour."
+
+msgid "No heading"
+msgstr "Pas de titre"
+
+msgid "How to use"
+msgstr "Mode d'emploi"
+
+msgid "In the post editor, click the \"Photo gallery\" button in the toolbar. Choose or drop the photos, write a description for each, put them in order, then click \"Upload and insert\". The photos are added to the media manager and the gallery is inserted at the cursor as plain HTML, which you can edit like the rest of the post."
+msgstr "Dans l'éditeur de billets, cliquez sur le bouton « Galerie photos » de la barre d'outils. Choisissez ou déposez les photos, écrivez une description pour chacune, mettez-les dans l'ordre, puis cliquez sur « Envoyer et insérer ». Les photos sont ajoutées au gestionnaire de médias et la galerie est insérée à l'emplacement du curseur en HTML simple, modifiable comme le reste du billet."
+
+msgid "The button is available in the default (legacy) editor, in both its visual and source modes."
+msgstr "Le bouton est disponible dans l'éditeur par défaut (legacy), en mode visuel comme en mode source."
+
+msgid "Gallery HTML"
+msgstr "HTML de la galerie"
+
+msgid "Class of the gallery list:"
+msgstr "Classe de la liste de la galerie :"
+
+msgid "Used as <ul class=\"…\">. If your theme already styles galleries with its own class, enter that class here."
+msgstr "Utilisée dans <ul class=\"…\">. Si votre thème met déjà en forme les galeries avec sa propre classe, indiquez cette classe ici."
+
+msgid "Heading above a gallery:"
+msgstr "Titre au-dessus d'une galerie :"
+
+msgid "Image size shown in the grid:"
+msgstr "Taille d'image affichée dans la grille :"
+
+msgid "Each image links to the full-size photo."
+msgstr "Chaque image renvoie vers la photo en taille réelle."
+
+msgid "Uploads"
+msgstr "Envois"
+
+msgid "Default media folder:"
+msgstr "Dossier des médias par défaut :"
+
+msgid "Resize photos before upload to (longest edge, px, 0 = keep the original size):"
+msgstr "Redimensionner les photos avant l'envoi à (plus grand côté, px, 0 = garder la taille d'origine) :"
+
+msgid "Larger photos are resized in the browser, so big camera files never hit the server upload limit, and resized photos lose their camera and location data. Sideways phone photos are always turned the right way up."
+msgstr "Les photos plus grandes sont redimensionnées dans le navigateur : les gros fichiers d'appareil photo ne dépassent jamais la limite d'envoi du serveur, et les photos redimensionnées perdent leurs données d'appareil et de localisation. Les photos de téléphone prises de côté sont toujours remises à l'endroit."
+
+msgid "JPEG quality when resizing (1-100):"
+msgstr "Qualité JPEG lors du redimensionnement (1-100) :"
+
+msgid "On the blog"
+msgstr "Sur le blog"
+
+msgid "Show galleries as a grid with a lightbox (CSS and script are added only to pages that contain a gallery)"
+msgstr "Afficher les galeries en grille avec une visionneuse (le CSS et le script ne sont ajoutés qu'aux pages qui contiennent une galerie)"
+
+msgid "Turn this off if your theme already styles galleries and opens photos in its own lightbox."
+msgstr "Désactivez cette option si votre thème met déjà en forme les galeries et ouvre les photos dans sa propre visionneuse."
+
+msgid "Save"
+msgstr "Enregistrer"
+
+msgid "Permission denied."
+msgstr "Permission refusée."
+
+msgid "The media folder of this blog is missing."
+msgstr "Le dossier des médias de ce blog est introuvable."
+
+msgid "No file received."
+msgstr "Aucun fichier reçu."
+
+msgid "The file is too large for this server."
+msgstr "Le fichier est trop lourd pour ce serveur."
+
+msgid "The file was only partly received."
+msgstr "Le fichier n'a été reçu qu'en partie."
+
+msgid "The file could not be received."
+msgstr "Le fichier n'a pas pu être reçu."
+
+msgid "Only JPEG, PNG and WebP images are accepted."
+msgstr "Seules les images JPEG, PNG et WebP sont acceptées."
+
+msgid "Too many files with this name."
+msgstr "Trop de fichiers portent ce nom."
+
+msgid "The file could not be saved."
+msgstr "Le fichier n'a pas pu être enregistré."
+
+msgid "A folder inside the blog's media folder (the one shown in the media manager), not a server path or a URL. Leave empty for the top level. Separate subfolders with a slash, for example shows/2026; slashes at the start or end are not needed and are removed. Folders that do not exist yet are created at the first upload. This is only the default: it can be changed in the dialog for each gallery."
+msgstr "Un dossier à l'intérieur du dossier des médias du blog (celui du gestionnaire de médias), et non un chemin sur le serveur ni une URL. Laissez vide pour la racine. Séparez les sous-dossiers par une barre oblique, par exemple shows/2026 ; inutile d'en mettre au début ou à la fin, elles sont retirées. Les dossiers qui n'existent pas encore sont créés au premier envoi. Ce n'est qu'une valeur par défaut : elle peut être changée dans la fenêtre pour chaque galerie."

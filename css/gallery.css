@@ -1,0 +1,18 @@
+/* Yet Another Gallery Builder: default grid and lightbox (turn off in the plugin settings if your theme styles galleries) */
+ul.GALLERY { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; margin: 1.5em 0; padding: 0; list-style: none; }
+ul.GALLERY li { margin: 0; padding: 0; }
+ul.GALLERY li::before { content: none; }
+ul.GALLERY a { display: block; line-height: 0; }
+ul.GALLERY img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+@media (max-width: 600px) { ul.GALLERY { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); } }
+
+.yagb-lightbox { position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; background: rgb(0 0 0 / .88); text-align: center; }
+.yagb-lightbox.is-open { display: flex; }
+.yagb-lightbox img { max-width: 92vw; max-height: 82vh; width: auto; height: auto; box-shadow: 0 2px 24px rgb(0 0 0 / .6); }
+.yagb-lightbox p { position: absolute; left: 0; right: 0; bottom: 12px; margin: 0; padding: 0 16px; color: #fff; font-size: .9em; text-shadow: 0 1px 3px rgb(0 0 0 / .9); }
+.yagb-lightbox button { position: absolute; padding: 10px 16px; border: 0; background: none; color: #fff; font-size: 34px; line-height: 1; cursor: pointer; text-shadow: 0 1px 3px rgb(0 0 0 / .9); }
+.yagb-lightbox button:focus-visible { outline: 2px solid #fff; }
+.yagb-lightbox .yagb-close { top: 6px; right: 10px; }
+.yagb-lightbox .yagb-prev { top: 50%; left: 4px; transform: translateY(-50%); }
+.yagb-lightbox .yagb-next { top: 50%; right: 4px; transform: translateY(-50%); }
+@media (max-width: 600px) { .yagb-lightbox button { font-size: 26px; } }
