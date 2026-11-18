@@ -351,10 +351,10 @@
     const status = el('p', { className: 'yagb-status', 'aria-live': 'polite' });
     const progress = el('progress', { className: 'yagb-progress', max: '100', value: '0', hidden: true });
     const insertBtn = el('button', { type: 'button', className: 'submit', text: msg.insert });
-    const cancel = el('button', { type: 'button', className: 'reset', text: msg.cancel });
+    const closeBtn = el('button', { type: 'button', className: 'yagb-close', title: msg.close, 'aria-label': msg.close, text: '×' });
 
     dialog.append(
-      el('h3', { id: 'yagb-title', text: msg.title }),
+      el('div', { className: 'yagb-header' }, el('h3', { id: 'yagb-title', text: msg.title }), closeBtn),
       el(
         'div',
         { className: 'yagb-fields' },
@@ -369,20 +369,23 @@
       list,
       progress,
       status,
-      el('p', { className: 'form-buttons yagb-buttons' }, insertBtn, cancel),
+      el('p', { className: 'form-buttons yagb-buttons' }, insertBtn),
     );
     document.body.append(dialog);
 
     ui = { heading, folder, basename, suffix, max, list, status, progress, insert: insertBtn };
 
-    cancel.addEventListener('click', () => {
+    const dismiss = () => {
       if (busy) return;
       // Keep photos that were already uploaded: insert them rather than leave them unused
       if (items.some((item) => item.result)) finish();
       else dialog.close();
-    });
+    };
+    closeBtn.addEventListener('click', dismiss);
+    // Esc does the same as the close button
     dialog.addEventListener('cancel', (e) => {
-      if (busy) e.preventDefault();
+      e.preventDefault();
+      dismiss();
     });
     dialog.addEventListener('close', () => {
       for (const item of items) URL.revokeObjectURL(item.preview);
@@ -426,7 +429,7 @@
   };
 
   const setControls = (enabled) => {
-    for (const control of dialog.querySelectorAll('input, select, .yagb-actions button, .yagb-choose')) {
+    for (const control of dialog.querySelectorAll('input, select, .yagb-actions button, .yagb-choose, .yagb-close')) {
       control.disabled = !enabled;
       control.classList.toggle('disabled', !enabled);
     }

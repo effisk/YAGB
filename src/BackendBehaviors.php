@@ -81,7 +81,7 @@ class BackendBehaviors
                 'moveDown'      => __('Move down'),
                 'remove'        => __('Remove'),
                 'insert'        => __('Upload and insert'),
-                'cancel'        => __('Cancel'),
+                'close'         => __('Close'),
                 'uploading'     => __('Uploading %1$s of %2$s…'),
                 'notImage'      => __('%s is not a JPEG, PNG or WebP image.'),
                 'tooBig'        => __('%s is too large to upload (maximum %s).'),

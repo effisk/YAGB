@@ -3,6 +3,7 @@
 ## 1.0.1 (2026-11-19)
 
 - The media folder suggestions, in the dialog and in the settings, now list every folder of the media folder, read from the disk. They used to show only folders that already contained a file known to the media manager, so empty folders, folders holding only subfolders and folders added by FTP were missing.
+- The dialog has a close button (×) at the top right instead of a Cancel button; Esc does the same. As before, photos already uploaded are inserted when it is closed. The Upload and insert button is at the bottom right.
 
 ## 1.0 (2026-11-19)
 
