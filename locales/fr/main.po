@@ -71,9 +71,6 @@ msgstr "Retirer"
 msgid "Upload and insert"
 msgstr "Envoyer et insérer"
 
-msgid "Cancel"
-msgstr "Annuler"
-
 msgid "Uploading %1$s of %2$s…"
 msgstr "Envoi de %1$s sur %2$s…"
 

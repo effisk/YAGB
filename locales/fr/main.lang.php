@@ -34,7 +34,6 @@ L10n::$locales['Move up'] = 'Monter';
 L10n::$locales['Move down'] = 'Descendre';
 L10n::$locales['Remove'] = 'Retirer';
 L10n::$locales['Upload and insert'] = 'Envoyer et insérer';
-L10n::$locales['Cancel'] = 'Annuler';
 L10n::$locales['Uploading %1$s of %2$s…'] = 'Envoi de %1$s sur %2$s…';
 L10n::$locales['%s is not a JPEG, PNG or WebP image.'] = '%s n\'est pas une image JPEG, PNG ou WebP.';
 L10n::$locales['%s is too large to upload (maximum %s).'] = '%s est trop lourd pour être envoyé (maximum %s).';

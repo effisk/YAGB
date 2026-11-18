@@ -1,6 +1,10 @@
 dialog.yagb-dialog { position: fixed; inset: 0; margin: auto; width: min(900px, 94vw); max-width: none; height: fit-content; max-height: 90vh; overflow: auto; padding: 1rem 1.5rem; border: 1px solid #999; border-radius: .5rem; box-sizing: border-box; }
 .yagb-dialog::backdrop { background: rgb(0 0 0 / .45); }
+.yagb-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
 .yagb-dialog h3 { margin-top: 0; }
+.yagb-close { flex: none; width: 32px; height: 32px; margin: -4px -8px 0 0; padding: 0; border: 0; border-radius: 4px; background: transparent; color: inherit; font-size: 24px; line-height: 32px; cursor: pointer; }
+.yagb-close:hover, .yagb-close:focus-visible { background: rgb(128 128 128 / .2); }
+.yagb-close:disabled { opacity: .4; cursor: default; }
 .yagb-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.5rem; }
 .yagb-field label { display: block; font-weight: 600; }
 .yagb-field input[type="text"] { width: 100%; box-sizing: border-box; }
@@ -21,7 +25,7 @@ dialog.yagb-dialog { position: fixed; inset: 0; margin: auto; width: min(900px, 
 .yagb-actions button { min-width: 32px; }
 .yagb-progress { width: 100%; }
 .yagb-status.error { color: #c00; }
-.yagb-buttons { margin-bottom: 0; }
+.yagb-buttons { display: flex; justify-content: flex-end; margin-bottom: 0; }
 @media (max-width: 640px) {
   .yagb-fields { grid-template-columns: 1fr; }
   .yagb-list li { grid-template-columns: 64px 1fr; }
