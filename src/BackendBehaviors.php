@@ -37,13 +37,7 @@ class BackendBehaviors
         $config  = My::config();
         $folders = [];
 
-        try {
-            if (!App::media()->isRootMissing()) {
-                $folders = App::media()->getDBDirs();
-                sort($folders, SORT_NATURAL | SORT_FLAG_CASE);
-            }
-        } catch (Throwable) {
-        }
+        $folders = My::mediaFolders();
 
         $sizes = [];
         try {
