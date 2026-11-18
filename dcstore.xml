@@ -1,11 +1,11 @@
 <modules xmlns:da="http://dotaddict.org/da/">
   <module id="YAGB">
     <name>Yet Another Gallery Builder</name>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <author>effisk</author>
     <desc>Upload photos from the post editor and insert them as a gallery</desc>
     <date>2026-11-19T00:00:00+0100</date>
-    <file>https://github.com/effisk/YAGB/releases/download/1.0/plugin-YAGB-1.0.zip</file>
+    <file>https://github.com/effisk/YAGB/releases/download/1.0.1/plugin-YAGB-1.0.1.zip</file>
     <da:dcmin>2.36</da:dcmin>
     <da:details>https://github.com/effisk/YAGB</da:details>
     <da:support>https://github.com/effisk/YAGB/issues</da:support>

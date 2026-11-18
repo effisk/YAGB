@@ -12,7 +12,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\YAGB;
 
+use Dotclear\App;
 use Dotclear\Module\MyPlugin;
+use Throwable;
 
 /**
  * Module helper and settings.
@@ -71,6 +73,73 @@ class My extends MyPlugin
         }
 
         return $c;
+    }
+
+    /**
+     * Most folders listed in the folder suggestions.
+     */
+    public const FOLDERS_MAX = 2000;
+
+    /**
+     * Every folder of the blog's media folder, relative to its root and sorted,
+     * read from the disk. The media table only knows folders that contain an
+     * indexed file, so folders created by FTP, never opened in the media
+     * manager, or holding only subfolders would be missing from it.
+     * Hidden folders, symbolic links and Dotclear's own folders are skipped.
+     *
+     * @return string[]
+     */
+    public static function mediaFolders(): array
+    {
+        try {
+            if (App::media()->isRootMissing()) {
+                return [];
+            }
+            $root = realpath(App::media()->getRoot());
+        } catch (Throwable) {
+            return [];
+        }
+        if ($root === false || !is_dir($root)) {
+            return [];
+        }
+
+        $skip = [];
+        foreach ([App::config()->dotclearRoot(), dirname(App::config()->configPath())] as $path) {
+            $real = realpath($path);
+            if ($real !== false && $real !== $root && !str_starts_with($root . '/', $real . '/')) {
+                $skip[] = $real;
+            }
+        }
+
+        $folders = [];
+        $queue   = [''];
+        while ($queue !== [] && count($folders) < self::FOLDERS_MAX) {
+            $rel  = array_shift($queue);
+            $path = $rel === '' ? $root : $root . '/' . $rel;
+            $list = @scandir($path);
+            if ($list === false) {
+                continue;
+            }
+            foreach ($list as $name) {
+                if ($name === '' || $name[0] === '.') {
+                    continue;
+                }
+                $full = $path . '/' . $name;
+                if (is_link($full) || !is_dir($full) || in_array($full, $skip, true)) {
+                    continue;
+                }
+                $child     = $rel === '' ? $name : $rel . '/' . $name;
+                $folders[] = $child;
+                $queue[]   = $child;
+                if (count($folders) >= self::FOLDERS_MAX) {
+                    break;
+                }
+            }
+        }
+
+        sort($folders, SORT_NATURAL | SORT_FLAG_CASE);
+
+        return $folders;
     }
 
     /**

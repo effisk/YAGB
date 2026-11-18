@@ -110,11 +110,8 @@ class Manage
         }
 
         $folders = '';
-        try {
-            foreach (App::media()->getDBDirs() as $dir) {
-                $folders .= '<option value="' . $e($dir) . '">';
-            }
-        } catch (Throwable) {
+        foreach (My::mediaFolders() as $dir) {
+            $folders .= '<option value="' . $e($dir) . '">';
         }
 
         echo '<div class="fieldset"><h3>' . $e(__('How to use')) . '</h3>'
