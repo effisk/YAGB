@@ -15,7 +15,7 @@
 if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
     $this->registerModule(
         'Yet Another Gallery Builder',                              // Name
-        'Upload photos from the post editor and insert them as a gallery', // Description
+        'Upload photos from the post editor and insert them as a gallery (developed with the help of AI)', // Description
         'effisk',                                                   // Author
         '1.0.2',                                                    // Version
         [

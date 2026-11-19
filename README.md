@@ -5,6 +5,8 @@
 
 A [Dotclear](https://dotclear.org) plugin to build photo galleries in posts: pick the photos, describe and order them, and one click uploads them and inserts the gallery.
 
+This plugin was developed with the help of AI.
+
 *Une description en français suit la version anglaise.*
 
 ## What it does
@@ -84,6 +86,8 @@ The plugin uses Dotclear's usual locale files: `locales/<lang>/main.po`, with `m
 ---
 
 ## En français
+
+*Ce plugin a été développé avec l'aide de l'IA.*
 
 **Yet Another Gallery Builder** (YAGB) ajoute un bouton **Galerie photos** à l'éditeur de billets.
 
