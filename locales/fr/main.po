@@ -11,8 +11,8 @@ msgstr ""
 msgid "Yet Another Gallery Builder"
 msgstr "Yet Another Gallery Builder"
 
-msgid "Upload photos from the post editor and insert them as a gallery"
-msgstr "Envoyez des photos depuis l'éditeur de billets et insérez-les sous forme de galerie"
+msgid "Upload photos from the post editor and insert them as a gallery (developed with the help of AI)"
+msgstr "Envoyez des photos depuis l'éditeur de billets et insérez-les sous forme de galerie (développé avec l'aide de l'IA)"
 
 msgid "Photo gallery"
 msgstr "Galerie photos"

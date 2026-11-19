@@ -14,7 +14,7 @@ declare(strict_types=1);
 use Dotclear\Helper\L10n;
 
 L10n::$locales['Yet Another Gallery Builder'] = 'Yet Another Gallery Builder';
-L10n::$locales['Upload photos from the post editor and insert them as a gallery'] = 'Envoyez des photos depuis l\'éditeur de billets et insérez-les sous forme de galerie';
+L10n::$locales['Upload photos from the post editor and insert them as a gallery (developed with the help of AI)'] = 'Envoyez des photos depuis l\'éditeur de billets et insérez-les sous forme de galerie (développé avec l\'aide de l\'IA)';
 L10n::$locales['Photo gallery'] = 'Galerie photos';
 L10n::$locales['Insert a photo gallery'] = 'Insérer une galerie photos';
 L10n::$locales['Heading (optional):'] = 'Titre (facultatif) :';
