@@ -13,7 +13,10 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\YAGB;
 
 use Dotclear\App;
+use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Process\TraitProcess;
+use Dotclear\Interface\Core\BlogInterface;
+use Throwable;
 
 /**
  * Install: global default settings (each blog can override them).
@@ -44,6 +47,18 @@ class Install
         $s->put('max_size', $d['max_size'], $ws::NS_INT, 'Longest edge before upload (0 = keep)', false, true);
         $s->put('quality', $d['quality'], $ws::NS_INT, 'JPEG quality when resizing', false, true);
         $s->put('front_assets', $d['front_assets'], $ws::NS_BOOL, 'Load the grid CSS and lightbox on the blog', false, true);
+
+        // Installing or updating the plugin changes the blog pages (grid and lightbox):
+        // mark every blog as updated, so page caches (e.g. Static Cache) don't keep
+        // pages rendered without the plugin or by an older version.
+        try {
+            $sql = new UpdateStatement();
+            $sql
+                ->ref(App::db()->con()->prefix() . BlogInterface::BLOG_TABLE_NAME)
+                ->set('blog_upddt = ' . $sql->quote(date('Y-m-d H:i:s')))
+                ->update();
+        } catch (Throwable) {
+        }
 
         return true;
     }

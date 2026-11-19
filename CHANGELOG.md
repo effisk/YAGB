@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2 (2026-11-19)
+
+- A gallery inserted inside a paragraph (in visual or HTML source mode) no longer ends up nested in it, which left empty paragraphs around it. An empty paragraph is replaced; otherwise the paragraph is split at the cursor.
+- Installing or updating the plugin now marks every blog as updated, so page caches such as Static Cache stop serving pages rendered before the plugin was installed, without the grid and lightbox.
+
 ## 1.0.1 (2026-11-19)
 
 - The media folder suggestions, in the dialog and in the settings, now list every folder of the media folder, read from the disk. They used to show only folders that already contained a file known to the media manager, so empty folders, folders holding only subfolders and folders added by FTP were missing.

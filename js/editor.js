@@ -145,6 +145,37 @@
     return { tb, mode, start: tb.textarea.selectionStart, end: tb.textarea.selectionEnd };
   };
 
+  /* Block placement
+  -------------------------------------------------------- */
+  // Elements that may only contain inline content: a gallery can't go inside them
+  const PHRASING = /^(P|H[1-6]|PRE|ADDRESS)$/;
+
+  const phrasingBlock = (node, root) => {
+    for (let n = node; n && n !== root; n = n.parentNode) {
+      if (n.nodeType === 1 && PHRASING.test(n.nodeName)) return n;
+    }
+    return null;
+  };
+
+  const isEmptyBlock = (el) =>
+    el.textContent.replace(/[\s\u00a0]+/g, '') === '' && !el.querySelector('img, picture, video, audio, iframe, object, embed, svg, input');
+
+  // HTML source: if the cursor is inside a <p>, close it before the gallery and reopen
+  // it after; an empty <p></p> around the cursor is removed.
+  const outsideParagraph = (before, after) => {
+    const opens = [...before.matchAll(/<p(\s[^>]*)?>/gi)];
+    const open = opens.at(-1);
+    if (!open || before.toLowerCase().lastIndexOf('</p>') > open.index) return [before, after];
+    const close = after.search(/<\/p\s*>/i);
+    if (close < 0) return [before, after];
+    const inside = before.slice(open.index + open[0].length);
+    const rest = after.slice(0, close);
+    const blank = (text) => text.replace(/&nbsp;|&#160;|<br\s*\/?>|\s+/gi, '') === '';
+    const b = blank(inside) ? before.slice(0, open.index) : `${before}</p>`;
+    const a = blank(rest) ? after.slice(close).replace(/^<\/p\s*>/i, '') : `${open[0]}${after}`;
+    return [b.replace(/[ \t]+$/, ''), a.replace(/^[ \t]+/, '')];
+  };
+
   const insert = (at, html) => {
     const { tb, mode } = at;
     if (mode === 'wysiwyg') {
@@ -158,7 +189,21 @@
       const fragment = range.createContextualFragment(html);
       const last = fragment.lastChild;
       range.deleteContents();
-      range.insertNode(fragment);
+      // A gallery is block content: never put it inside a paragraph (or heading…).
+      // An empty paragraph is replaced; otherwise the paragraph is split at the cursor.
+      const block = phrasingBlock(range.startContainer, doc.body);
+      if (block) {
+        const tail = doc.createRange();
+        tail.setStart(range.startContainer, range.startOffset);
+        tail.setEnd(block, block.childNodes.length);
+        const rest = block.cloneNode(false);
+        rest.append(tail.extractContents());
+        block.after(fragment);
+        if (!isEmptyBlock(rest)) last.after(rest);
+        if (isEmptyBlock(block)) block.remove();
+      } else {
+        range.insertNode(fragment);
+      }
       if (last) {
         const sel = tb.iwin.getSelection();
         const after = doc.createRange();
@@ -172,8 +217,9 @@
     }
     const snippet = mode === 'wiki' ? `///html\n${html}\n///` : html;
     const ta = tb.textarea;
-    const before = ta.value.slice(0, at.start);
-    const after = ta.value.slice(at.end);
+    let before = ta.value.slice(0, at.start);
+    let after = ta.value.slice(at.end);
+    if (mode === 'xhtml') [before, after] = outsideParagraph(before, after);
     const pre = before === '' || before.endsWith('\n\n') ? '' : before.endsWith('\n') ? '\n' : '\n\n';
     const post = after === '' || after.startsWith('\n\n') ? '' : after.startsWith('\n') ? '\n' : '\n\n';
     ta.value = before + pre + snippet + post + after;
