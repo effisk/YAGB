@@ -64,16 +64,17 @@ class Frontend
     private static bool $added = false;
 
     /**
-     * On a post or page, add the assets to the <head> if its content has a gallery.
+     * On a single entry (post, page…), add the assets to the <head> if its content has a gallery.
      */
     public static function headContent(): string
     {
         try {
-            if (self::$added || !in_array(App::url()->getType(), ['post', 'pages', 'preview'], true)) {
+            if (self::$added || in_array(App::url()->getType(), ['feed', 'trackback', 'xmlrpc', 'rsd'], true)) {
                 return '';
             }
+            // A single entry is being shown (post, page, preview, or a theme's own handler)
             $posts = App::frontend()->context()->posts;
-            if ($posts === null || $posts->isEmpty()) {
+            if ($posts === null || $posts->isEmpty() || $posts->count() !== 1) {
                 return '';
             }
             $class   = My::config()['css_class'];

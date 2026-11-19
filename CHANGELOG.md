@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.3 (2026-11-19)
+
+- The grid and lightbox are added to the page head of any page that shows a single entry with a gallery, whatever URL handler the theme uses for it.
+- Same features as 1.0.2; the new version number makes the update, and the page-cache refresh that comes with it, run on sites that installed an early 1.0.2 build.
+
 ## 1.0.2 (2026-11-19)
 
 - On posts and pages, the grid and lightbox are now added to the page head when the content has a gallery. Themes that print the post content with their own template tag skip the content filters the plugin used, so with a page cache such as Static Cache the cached pages had no grid or lightbox.
