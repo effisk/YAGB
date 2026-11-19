@@ -17,7 +17,7 @@ if (isset($this) && is_object($this) && method_exists($this, 'registerModule') &
         'Yet Another Gallery Builder',                              // Name
         'Upload photos from the post editor and insert them as a gallery', // Description
         'effisk',                                                   // Author
-        '1.0.1',                                                    // Version
+        '1.0.2',                                                    // Version
         [
             'requires'    => [['core', '2.36']],
             'permissions' => 'My',
