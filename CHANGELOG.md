@@ -2,6 +2,7 @@
 
 ## 1.0.2 (2026-11-19)
 
+- On posts and pages, the grid and lightbox are now added to the page head when the content has a gallery. Themes that print the post content with their own template tag skip the content filters the plugin used, so with a page cache such as Static Cache the cached pages had no grid or lightbox.
 - A gallery inserted inside a paragraph (in visual or HTML source mode) no longer ends up nested in it, which left empty paragraphs around it. An empty paragraph is replaced; otherwise the paragraph is split at the cursor.
 - Installing or updating the plugin now marks every blog as updated, so page caches such as Static Cache stop serving pages rendered before the plugin was installed, without the grid and lightbox.
 - The plugin description says that it was developed with the help of AI.

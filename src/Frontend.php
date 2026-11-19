@@ -21,7 +21,7 @@ use Throwable;
 /**
  * Frontend: load the grid CSS and the lightbox, only on HTML pages that
  * contain a gallery (and only if the setting is on). They are added to the
- * rendered post content, so page caches store them with the page.
+ * rendered page (head of a post, or post content), so page caches store them.
  */
 class Frontend
 {
@@ -42,8 +42,12 @@ class Frontend
             return true;
         }
 
-        // Main path: add the assets to the post content as it is rendered, so they are part
-        // of the page that page-cache plugins (e.g. Static Cache) store and serve later.
+        // Assets are added while the page is rendered, so they are part of the page that
+        // page-cache plugins (e.g. Static Cache) store and serve later.
+        // 1. In the <head> of a post or page whose content has a gallery. This works even
+        //    when the theme prints the content with its own template tag.
+        App::behavior()->addBehavior('publicHeadContent', self::headContent(...));
+        // 2. Before the first gallery of a post content rendered by the core tags (lists).
         App::behavior()->addBehavior('publicAfterContentFilterV2', self::contentFilter(...));
 
         // Fallback for galleries outside post content (widgets, templates)
@@ -58,6 +62,33 @@ class Frontend
 
     /** Assets already added to this page. */
     private static bool $added = false;
+
+    /**
+     * On a post or page, add the assets to the <head> if its content has a gallery.
+     */
+    public static function headContent(): string
+    {
+        try {
+            if (self::$added || !in_array(App::url()->getType(), ['post', 'pages', 'preview'], true)) {
+                return '';
+            }
+            $posts = App::frontend()->context()->posts;
+            if ($posts === null || $posts->isEmpty()) {
+                return '';
+            }
+            $class   = My::config()['css_class'];
+            $content = $posts->getExcerpt(false) . $posts->getContent(false);
+            if (!self::hasGallery($content, $class)) {
+                return '';
+            }
+
+            self::$added = true;
+            echo self::style($class) . "\n" . self::script($class) . "\n";
+        } catch (Throwable) {
+        }
+
+        return '';
+    }
 
     /**
      * Post content/excerpt filter: before the first gallery of the page, add the CSS
